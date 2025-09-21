@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Apollo" %></title>
+    <title><%= content_for(:title) || "Apollo - 海辺の日記帳" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#87CEEB">
+    <meta name="description" content="海辺をテーマにした日記アプリ。あなたの想いをボトルに込めて、名言と一緒に振り返ろう。">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,9 +19,70 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <style>
+      /* 基本的なモバイル対応とスムーズなアニメーション */
+      * {
+        box-sizing: border-box;
+      }
+      
+      html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+      
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        scroll-behavior: smooth;
+      }
+      
+      /* タッチデバイス用のボタンスタイル */
+      button, .button, input[type="submit"] {
+        -webkit-appearance: none;
+        appearance: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        touch-action: manipulation;
+      }
+      
+      /* フォーカス時のアクセシビリティ */
+      a:focus, button:focus, input:focus, textarea:focus {
+        outline: 2px solid #4ECDC4;
+        outline-offset: 2px;
+      }
+      
+      /* 画像の最適化 */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      /* スクロールバーのスタイリング */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: rgba(139, 69, 19, 0.3);
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(139, 69, 19, 0.5);
+      }
+    </style>
   </head>
 
   <body>
